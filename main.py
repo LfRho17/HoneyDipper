@@ -10,11 +10,11 @@ class title_page(Slide):
         title = Text("Project HoneyDipper", color = '#F29C1F').scale(1.5)
        # title.set_color_by_gradient(RED, YELLOW, GREEN, BLUE)
 
-        header = Group(logo, title).arrange(RIGHT, buff=0.5)
+        t_and_logo = Group(logo, title).arrange(RIGHT, buff=0.5)
 
-        header.to_edge(UP, buff=0.5)
+        t_and_logo.to_edge(UP, buff=0.5)
 
-        self.play(FadeIn(logo)) # El logo aparece primero
-       # self.next_slide() # Pausa para tu presentación
+        self.play(FadeIn(logo)) 
+       # self.next_slide() # Pause
         
         self.play(Write(title)) 
