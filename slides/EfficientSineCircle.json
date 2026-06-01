@@ -1,0 +1,23 @@
+{
+  "slides": [
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "type": "video",
+      "direction": "horizontal",
+      "file": "slides/files/EfficientSineCircle/6d2303aa8077c04813096a10d1d22830ecfe4d248f355927a34c2a9efdd90991.mp4",
+      "rev_file": "slides/files/EfficientSineCircle/6d2303aa8077c04813096a10d1d22830ecfe4d248f355927a34c2a9efdd90991_reversed.mp4"
+    }
+  ],
+  "resolution": [
+    1920,
+    1080
+  ],
+  "background_color": "#0f0f0f"
+}
