@@ -13,6 +13,20 @@
       "direction": "horizontal",
       "file": "slides/files/title_page/dd8587dc72be8c6755aa066048eeba3685dcdc69519b1d6a2d03e5339282fe0f.mp4",
       "rev_file": "slides/files/title_page/dd8587dc72be8c6755aa066048eeba3685dcdc69519b1d6a2d03e5339282fe0f_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "skip_animations": false,
+      "src": null,
+      "type": "video",
+      "direction": "horizontal",
+      "file": "slides/files/title_page/793410196b964f416315f84b471901b8abba242d020b555d206925d5558a7554.mp4",
+      "rev_file": "slides/files/title_page/793410196b964f416315f84b471901b8abba242d020b555d206925d5558a7554_reversed.mp4"
     }
   ],
   "resolution": [
