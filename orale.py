@@ -34,11 +34,9 @@ class title_page(Slide):
         faradayLaw = MathTex(r"\vec{\nabla} \times \vec{E} = - \frac{\partial \vec{B}}{\partial t}")
         ampereLaw_MLaw = MathTex(r"\vec{\nabla} \times \vec{B} = \mu_0 \left(\vec{J} +\varepsilon_0 \frac{\partial \vec{E}}{\partial t} \right)")
 
-
         maxWelleq = VGroup(gaussLaw, gaussLaw_Magnetic, faradayLaw, ampereLaw_MLaw).scale(1)
         # maxWelleq.arrange(DOWN, aligned_edge = LEFT, buff = 0.5).to_corner(UP + LEFT, buff = 0.5)
 
-        gaussLaw_int = MathTex(r"\oint_S \vec{E} \cdot \mathrm{d}\vec{A} = \frac{Q_{\text{enc}}}{\varepsilon_0}")
         maxWelleq.arrange(DOWN, buff = 0.5) #.to_edge(DOWN, buff = 0.5)
         maxWelleq.move_to(ORIGIN)
         title_eq = Tex(r"Maxwell's Equations").to_edge(UP, buff = 0.5)
@@ -71,63 +69,3 @@ class title_page(Slide):
             gaussLaw.animate.move_to(ORIGIN), 
             ReplacementTransform(title_eq, tGauss) 
         )
-
-        self.next_slide()
-
-        self.play(gaussLaw.animate.shift(UP * 2.5))
-        gaussLaw_int.move_to(gaussLaw)
-        self.play(ReplacementTransform(gaussLaw, gaussLaw_int))
-
-        charge_body = Circle(radius=0.3, color=RED, fill_opacity=1)
-        charge_sign = MathTex("+").scale(1.5).move_to(charge_body.get_center())
-        charge = VGroup(charge_body, charge_sign)
-
-        self.play(DrawBorderThenFill(charge_body), Write(charge_sign))
-        
-        self.next_slide()
-
-
-        gaussian_surface = DashedVMobject(Circle(radius=2.0, color=BLUE), num_dashes=35)
-        surface_label = MathTex("S").next_to(gaussian_surface, UR, buff=0.1).set_color(BLUE)
-
-        self.play(Create(gaussian_surface), Write(surface_label))
-
-        self.next_slide()
-
-        field_lines = VGroup()
-        flow_paths = VGroup()
-        num_lines = 8  
-        
-        for i in range(num_lines):
-            angle = i * (2 * PI / num_lines)
-            
-            start_point = charge.get_center() + np.array([0.4 * np.cos(angle), 0.4 * np.sin(angle), 0])
-            end_point = charge.get_center() + np.array([2.0 * np.cos(angle), 2.0 * np.sin(angle), 0])
-            
-            flow_end = charge.get_center() + np.array([3.6 * np.cos(angle), 3.6 * np.sin(angle), 0])
-            
-            arrow = Arrow(
-                start_point, 
-                end_point, 
-                color=YELLOW, 
-                buff=0, 
-                max_tip_length_to_length_ratio=0.1
-            )
-            field_lines.add(arrow)
-            
-            path = Line(start_point, flow_end)
-            flow_paths.add(path)
-        
-        self.play(Create(field_lines, lag_ratio=0.1))
-
-        self.next_slide()
-
-        for _ in range(8):
-            self.play(
-                ShowPassingFlash(
-                    flow_paths.copy().set_color(WHITE).set_stroke(width=6),
-                    run_time=1.2,
-                    time_width=0.3,  # Determina qué tan "largo" es el pulso (30% de la línea a la vez)
-                    rate_func=linear
-                )
-            )
